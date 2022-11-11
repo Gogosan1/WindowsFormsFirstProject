@@ -57,6 +57,7 @@
             this.groupBox1.Controls.Add(this.WorkerName);
             this.groupBox1.Controls.Add(this.text1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(382, 400);
@@ -68,6 +69,7 @@
             // 
             this.CreateWorker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CreateWorker.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CreateWorker.Enabled = false;
             this.CreateWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.CreateWorker.Location = new System.Drawing.Point(3, 358);
             this.CreateWorker.Name = "CreateWorker";

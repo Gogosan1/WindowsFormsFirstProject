@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 using static LabaSixThirdSemester.Worker;
 
@@ -45,8 +38,6 @@ namespace LabaSixThirdSemester
                 e.Cancel = false;
             EnableCreateWorker_Validated();
         }
-
-        // Как сделать универсальную валидацию?
         private void Salary_Validating(object sender, CancelEventArgs e)
         {
             e.Cancel = true;
@@ -102,8 +93,6 @@ namespace LabaSixThirdSemester
                  gender = Gender.Male;
             else
                 gender = Gender.Female;
-            if (firstElement == -1)
-                MessageBox.Show("GG");
         }
         private Gender gender;
 

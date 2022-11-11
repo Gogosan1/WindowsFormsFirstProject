@@ -37,27 +37,27 @@
             this.rbtCommisionWorker = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DataGridView = new System.Windows.Forms.DataGridView();
-            this.workerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Days = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerListBindingSource)).BeginInit();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // CreateWorker
             // 
             this.CreateWorker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CreateWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.CreateWorker.Location = new System.Drawing.Point(1, 81);
+            this.CreateWorker.Location = new System.Drawing.Point(9, 81);
             this.CreateWorker.Name = "CreateWorker";
-            this.CreateWorker.Size = new System.Drawing.Size(186, 39);
+            this.CreateWorker.Size = new System.Drawing.Size(201, 39);
             this.CreateWorker.TabIndex = 0;
             this.CreateWorker.Text = "Create worker";
             this.CreateWorker.UseVisualStyleBackColor = true;
@@ -67,9 +67,9 @@
             // 
             this.FireWorker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FireWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.FireWorker.Location = new System.Drawing.Point(46, 181);
+            this.FireWorker.Location = new System.Drawing.Point(239, 331);
             this.FireWorker.Name = "FireWorker";
-            this.FireWorker.Size = new System.Drawing.Size(186, 37);
+            this.FireWorker.Size = new System.Drawing.Size(428, 37);
             this.FireWorker.TabIndex = 5;
             this.FireWorker.Text = "Fire worker";
             this.FireWorker.UseVisualStyleBackColor = true;
@@ -94,9 +94,10 @@
             this.groupBox1.Controls.Add(this.CreateWorker);
             this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 126);
+            this.groupBox1.Size = new System.Drawing.Size(221, 126);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Выбор сотрудника";
             // 
             // rbtHourlyWorker
             // 
@@ -125,10 +126,9 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.DataGridView);
-            this.groupBox2.Controls.Add(this.FireWorker);
-            this.groupBox2.Location = new System.Drawing.Point(239, 41);
+            this.groupBox2.Location = new System.Drawing.Point(239, 33);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(428, 291);
+            this.groupBox2.Size = new System.Drawing.Size(428, 303);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Работники";
@@ -136,25 +136,40 @@
             // DataGridView
             // 
             this.DataGridView.AutoGenerateColumns = false;
+            this.DataGridView.BackgroundColor = System.Drawing.Color.White;
             this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.fullNameDataGridViewTextBoxColumn});
             this.DataGridView.DataSource = this.workerListBindingSource;
-            this.DataGridView.Location = new System.Drawing.Point(46, 25);
+            this.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridView.Location = new System.Drawing.Point(3, 18);
             this.DataGridView.Name = "DataGridView";
             this.DataGridView.RowHeadersWidth = 51;
             this.DataGridView.RowTemplate.Height = 24;
-            this.DataGridView.Size = new System.Drawing.Size(303, 150);
+            this.DataGridView.Size = new System.Drawing.Size(422, 282);
             this.DataGridView.TabIndex = 6;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fullNameDataGridViewTextBoxColumn.Width = 300;
             // 
             // workerListBindingSource
             // 
             this.workerListBindingSource.DataMember = "WorkerList";
             this.workerListBindingSource.DataSource = this.companyBindingSource;
             // 
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataSource = typeof(LabaSixThirdSemester.Company);
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.Days);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.SimulateWork);
             this.groupBox3.Location = new System.Drawing.Point(12, 165);
@@ -162,14 +177,15 @@
             this.groupBox3.Size = new System.Drawing.Size(221, 212);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Симулирование работы";
             // 
-            // textBox1
+            // Days
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 22);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.Days.Location = new System.Drawing.Point(6, 72);
+            this.Days.Name = "Days";
+            this.Days.Size = new System.Drawing.Size(201, 22);
+            this.Days.TabIndex = 10;
+            this.Days.Validating += new System.ComponentModel.CancelEventHandler(this.Days_Validating);
             // 
             // label1
             // 
@@ -180,39 +196,26 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Введите количество дней,\r\nв течение которых\r\n будет симулированна работа\r\n";
             // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fullNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // companyBindingSource
-            // 
-            this.companyBindingSource.DataSource = typeof(LabaSixThirdSemester.Company);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 703);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.FireWorker);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "MainForm";
             this.Text = "Company";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,10 +232,10 @@
         private System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.BindingSource workerListBindingSource;
         private System.Windows.Forms.BindingSource companyBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Days;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
     }
 }
 

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LabaSixThirdSemester
@@ -13,7 +7,6 @@ namespace LabaSixThirdSemester
     public partial class MainForm : Form
     {
         private readonly Company company;
-       // private BindingList<Worker> bindingList;
         public MainForm(Company company)
         {
             this.company = company;
@@ -22,12 +15,6 @@ namespace LabaSixThirdSemester
 
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void CreateWorker_Click(object sender, EventArgs e)
         {
             if (rbtCommisionWorker.Checked)
@@ -40,9 +27,9 @@ namespace LabaSixThirdSemester
                     var source = new BindingSource(company.WorkerList, null);
                     DataGridView.DataSource = source;
                 }
-                catch (ArgumentException t)
+                catch (ArgumentException message)
                 {
-                    MessageBox.Show(t.Message);
+                    MessageBox.Show(message.Message);
                 }     
             }
             if(rbtHourlyWorker.Checked)
@@ -61,10 +48,9 @@ namespace LabaSixThirdSemester
                 }
             }
         }
-
         private void SimulateWork_Click(object sender, EventArgs e)
         {
-            int expenses = company.SimulateWork(Convert.ToInt32(textBox1.Text));
+            int expenses = company.SimulateWork(Convert.ToInt32(Days.Text));
             MessageBox.Show($"Затраты на содержание сотрудников в компании: {Convert.ToString(expenses)}\n" +
                             $"количество отработанных дней: {Convert.ToString(company.GetWorkedDaysCount())}");
         }
@@ -75,15 +61,14 @@ namespace LabaSixThirdSemester
                 DataGridView.Rows.Remove(row); 
             }
         }
-
-        private void textBox1_Validating(object sender, CancelEventArgs e)
+        private void Days_Validating(object sender, CancelEventArgs e)
         {
             e.Cancel = true;
-            if (textBox1.TextLength == 0)
+            if (Days.TextLength == 0)
                 MessageBox.Show("Ошибка! Осуществите ввод.");
             else
             {
-                if (Int32.TryParse(textBox1.Text, out int t))
+                if (Int32.TryParse(Days.Text, out int t))
                 {
                     if (t > 0)
                         e.Cancel = false;
@@ -93,8 +78,16 @@ namespace LabaSixThirdSemester
                 else
                     MessageBox.Show("Ошибка! Ожидалось целочисленное значение.");
             }
-            if (textBox1.Text != "")
+            if (Days.Text != "")
                 SimulateWork.Enabled = true;
         }
+
     }
 }
+
+
+/*
+    TODO:
+        крестик
+        поле пробелов имя
+ */

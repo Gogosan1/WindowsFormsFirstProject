@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LabaSixThirdSemester.Worker;
 
@@ -117,8 +110,6 @@ namespace LabaSixThirdSemester
                 gender = Gender.Male;
             else
                 gender = Gender.Female;
-            if (firstElement == -1)
-                MessageBox.Show("GG");
         }
 
         private Gender gender;
